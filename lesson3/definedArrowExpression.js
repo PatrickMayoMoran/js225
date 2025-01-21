@@ -1,11 +1,14 @@
 let obj1 = {
-  name: "Object 1",
-  dynamic: () => {
-      console.log(this);
+  a: "This is Object 1",
+  dynamic () {
+      let bar = () => {
+          console.log(this.a);
+      }
+      bar();
     },
 }
 
-let obj2 = {name: "Object 2",};
+let obj2 = {a: "This is Object 2",};
 
 obj2.alsoDynamic = obj1.dynamic;
 
