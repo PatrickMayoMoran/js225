@@ -34,17 +34,23 @@ function makeBank() {
       this.accounts.push(newAccount);
       return newAccount;
     },
+
+    transfer(source, destination, amount) {
+      amount = source.withdraw(amount);
+      destination.deposit(amount);
+      return amount;
+    },
   };
 }
 
 let bank = makeBank();
-console.log(bank.accounts);
-
-let account = bank.openAccount();
-console.log(account.number);
-
-console.log(bank.accounts);
-console.log(bank.accounts[0]);
-
-let secondAccount = bank.openAccount();
-console.log(secondAccount.number);
+let source = bank.openAccount();
+console.log(source.deposit(10));
+// 10
+let destination = bank.openAccount();
+console.log(bank.transfer(source, destination, 7));
+// 7
+console.log(source.balance);
+// 3
+console.log(destination.balance);
+// 7
