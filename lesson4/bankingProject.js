@@ -1,3 +1,12 @@
+function makeBank() {
+  return {
+    accounts: [],
+  };
+}
+
+let bank = makeBank();
+console.log(bank.accounts);
+
 function makeAccount() {
   return {
     balance: 0,
