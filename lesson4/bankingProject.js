@@ -3,26 +3,35 @@ function makeBank() {
     accounts: [],
 
     makeAccount(number) {
+      let balance = 0;
+      let transactions = [];
+
       return {
-        balance: 0,
+        balance() {
+          return balance;
+        },
 
-        number,
+        number() {
+          return number;
+        },
 
-        transactions: [],
+        transactions() {
+          return transactions;
+        },
 
         deposit(amount) {
-          this.balance += amount;
-          this.transactions.push({type: "deposit", amount: amount});
+          balance += amount;
+          transactions.push({type: "deposit", amount: amount});
           return amount;
         },
 
         withdraw(amount) {
-          if (amount > this.balance) {
-            amount = this.balance;
+          if (amount > balance) {
+            amount = balance;
           }
 
-          this.balance -= amount;
-          this.transactions.push({type: "withdraw", amount: amount});
+          balance -= amount;
+          transactions.push({type: "withdraw", amount: amount});
           return amount;
         }
       };
@@ -36,21 +45,19 @@ function makeBank() {
     },
 
     transfer(source, destination, amount) {
-      amount = source.withdraw(amount);
-      destination.deposit(amount);
-      return amount;
+      return destination.deposit(source.withdraw(amount));
     },
   };
 }
 
 let bank = makeBank();
-let source = bank.openAccount();
-console.log(source.deposit(10));
-// 10
-let destination = bank.openAccount();
-console.log(bank.transfer(source, destination, 7));
-// 7
-console.log(source.balance);
-// 3
-console.log(destination.balance);
-// 7
+let account = bank.openAccount();
+console.log(account.balance());
+// 0
+console.log(account.deposit(17));
+// 17
+let secondAccount = bank.openAccount();
+console.log(secondAccount.number());
+// 102
+console.log(account.transactions());
+// [{...}]
