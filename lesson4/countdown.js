@@ -1,10 +1,12 @@
 function countdown(count) {
-  (function(num) {
-    let i;
-    for (i = num; i >= 0; i--) {
-      console.log(i);
+  (function output(num) {
+    if (num < 0) {
+      console.log('Done!');
+      return;
+    } else {
+      console.log(num);
+      output(num - 1);
     }
-    console.log('Done!');
   })(count);
 }
 
