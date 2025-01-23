@@ -1,7 +1,7 @@
 function makeBank() {
-  return {
-    accounts: [],
+  let accounts = [];
 
+  return {
     makeAccount(number) {
       let balance = 0;
       let transactions = [];
@@ -38,9 +38,9 @@ function makeBank() {
     },
 
     openAccount() {
-      let number = this.accounts.length + 101;
+      let number = accounts.length + 101;
       let newAccount = this.makeAccount(number);
-      this.accounts.push(newAccount);
+      accounts.push(newAccount);
       return newAccount;
     },
 
@@ -51,13 +51,5 @@ function makeBank() {
 }
 
 let bank = makeBank();
-let account = bank.openAccount();
-console.log(account.balance());
-// 0
-console.log(account.deposit(17));
-// 17
-let secondAccount = bank.openAccount();
-console.log(secondAccount.number());
-// 102
-console.log(account.transactions());
-// [{...}]
+console.log(bank.accounts);
+// undefined
