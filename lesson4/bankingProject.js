@@ -7,15 +7,13 @@ let account = {
   },
 
   withdraw(amount) {
-    if (amount <= this.balance) {
-      this.balance -= amount;
-      return amount;
-    } else {
-      let existingBalance = this.balance;
-      this.balance = 0;
-      return existingBalance;
+    if (amount > this.balance) {
+      amount = this.balance;
     }
-  }
+
+    this.balance -= amount;
+    return amount;
+  },
 }
 
 console.log(account.deposit(100));
