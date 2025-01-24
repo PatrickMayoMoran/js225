@@ -1,5 +1,7 @@
-function myBind(func, context) {
-  return function() {
-    return func.apply(context);
+function myBind(func, context, ...partialArgs) {
+  return function(...args) {
+    const fullArgs = partialArgs.concat(args);
+
+    return func.apply(context, fullArgs);
   };
 }
