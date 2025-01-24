@@ -66,3 +66,8 @@ car.honk();
 boat.accelerate();
 boat.decelerate();
 boat.dropAnchor();
+
+console.log(car instanceof Vehicle);
+console.log(boat instanceof Vehicle);
+console.log(car instanceof Car);
+console.log(boat instanceof Car);
