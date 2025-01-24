@@ -3,9 +3,20 @@ const franchise = {
   allMovies() {
     return [1, 2, 3].map(function(number) {
       return `${this.name} ${number}`;
+    }.bind(this));
+  },
+};
+
+/* OPTIONAL THIS - array functions can take an optional this argument
+const franchise = {
+  name: 'How to Train Your Dragon',
+  allMovies() {
+    return [1, 2, 3].map(function(number) {
+      return `${this.name} ${number}`;
     }, this);
   },
 };
+*/
 
 /* ARROW - Arrow function which retains this of space where defined
 const franchise = {
