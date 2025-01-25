@@ -1,15 +1,15 @@
-function createInvoice(services) {
+function createInvoice(services={}) {
   // implement the factory function here
   let invoice = {
-    internet: 5500,
-    phone: 3000,
+    internet: services.internet || 5500,
+    phone: services.phone || 3000,
 
     total() {
       return this.internet + this.phone;
     }
   }
 
-  return Object.assign(invoice, services);
+  return invoice;
 }
 
 function invoiceTotal(invoices) {
