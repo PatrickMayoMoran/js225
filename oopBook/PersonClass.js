@@ -12,10 +12,10 @@ class Person {
   }
 
   set age(newAge) {
-    if (newAge < 0) {
-      throw new Error("You can't be younger than 0!");
-    } else {
+    if (typeof(newAge) === 'number' && newAge > 0) {
       this.#age = newAge;
+    } else {
+      throw new Error("You can't be younger than 0!");
     }
   }
 }
