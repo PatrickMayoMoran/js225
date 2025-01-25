@@ -37,8 +37,21 @@ function invoiceTotal(invoices) {
 // }));
 // 
 // console.log(invoiceTotal(invoices));             // => 31000
-function createPayment(services) {
+function createPayment(services={}) {
   // implement the factory function here
+  return {
+    internet: services.internet || 0,
+    phone: services.phone || 0,
+    amount: services.amount || 0,
+
+    total() {
+      if (this.amount) {
+        return this.amount;
+      } else {
+        return this.phone + this.internet;
+      }
+    },
+  };
 }
 
 function paymentTotal(payments) {
