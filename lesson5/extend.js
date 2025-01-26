@@ -1,9 +1,8 @@
 function extend(destination, ...args) {
   for (let i = 0; i < args.length; i++) {
     let obj = args[i];
-    for (let prop in obj) {
-      destination[prop] = obj[prop];
-    }
+    let props = Object.getOwnPropertyNames(obj);
+    props.forEach(p => destination[p] = obj[p]);
   }
 
   return destination;
