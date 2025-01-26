@@ -1,16 +1,9 @@
 function getDefiningObject(object, propKey) {
-  let definingObject = null;
-  let currentObject = object;
-
-  while (currentObject) {
-    if (currentObject.hasOwnProperty(propKey)) {
-      return currentObject;
-    } else {
-      currentObject = Object.getPrototypeOf(currentObject);
-    }
+  while (object && !object.hasOwnProperty(propKey)) {
+    object = Object.getPrototypeOf(object);
   }
 
-  return definingObject;
+  return object;
 }
 
 let foo = {
