@@ -1,5 +1,7 @@
 Object.prototype.begetObject = function() {
-  return Object.create(this);
+  function T() {};
+  T.prototype = this;
+  return new T();
 }
 
 let foo = {
