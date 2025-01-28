@@ -5,6 +5,10 @@ class Cat {
     this.name = name;
   }
 
+  static genericGreeting() {
+    console.log("Hello! I'm a cat!");
+  }
+
   greet() {
     console.log(`I'm a cat and my name is ${this.name}!`);
   }
@@ -18,3 +22,5 @@ let kitty = new Cat();
 kitty.greet();
 kitty.rename("Tiny");
 kitty.greet();
+
+Cat.genericGreeting();
