@@ -23,8 +23,19 @@ class Cat extends Animal {
 }
 
 class Dog extends Animal {
+  constructor(name, age, status, master) {
+    super(name, age, 4, 'dog', status);
+    this.master = master;
+  }
+
+  greetMaster() {
+    return `Hello ${this.master}! Woof, woof!`;
+  }
 }
 
 let cat = new Cat("Pepe", 2, "happy");
 console.log(cat.introduce() === "Hello, my name is Pepe and I am 2 years old and happy. Meow meow!");
 // logs true
+
+let dog = new Dog("Dakota", 3, "confused", "Patrick");
+console.log(dog.greetMaster());
