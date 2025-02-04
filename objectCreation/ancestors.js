@@ -11,6 +11,16 @@ Object.prototype.ancestors = function() {
 }
 */
 
+Object.prototype.ancestors = function() {
+  const ancestor = Object.getPrototypeOf(this);
+
+  if (ancestor.hasOwnProperty('name')) {
+    return [ancestor.name].concat(ancestor.ancestors());
+  }
+
+  return ['Object.prototype'];
+}
+
 // name property added to make objects easier to identify
 const foo = {name: 'foo'};
 const bar = Object.create(foo);
