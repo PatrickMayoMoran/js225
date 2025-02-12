@@ -1,5 +1,14 @@
+let prefix = ">> ";
+
 function logIt(string) {
-  console.log(string);
+  console.log(`${prefix}${string}`);
 }
 
-module.exports = logIt;
+function setPrefix(newPrefix) {
+  prefix = newPrefix;
+}
+
+module.exports = {
+  logIt,
+  setPrefix,
+};
