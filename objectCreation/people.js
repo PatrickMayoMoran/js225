@@ -103,3 +103,13 @@ graduateStudent.sleep();                                 // logs 'Sleeping'
 console.log(graduateStudent.fullName());                 // logs 'Qux Bar'
 graduateStudent.study();                                 // logs 'Studying'
 graduateStudent.research();                              // logs 'Researching'
+
+console.log("Mayo testing stuff");
+// instanceof checks whether object is a thing or has in inheritance chain
+console.log(graduateStudent instanceof Person);
+// typeof returns string type for custom types
+console.log(typeof graduateStudent);
+// Object.getPrototypeOf() gets us the prototype of an object
+console.log(Object.getPrototypeOf(graduateStudent));
+// Object.prototype.isPrototypeOf() tells us if calling is an ancestor of argument
+console.log(Student.prototype.isPrototypeOf(graduateStudent));
