@@ -8,4 +8,8 @@ let tiny = {
 }
 
 let otherMeow = tiny.meow;
-otherMeow() // undefined undefined
+otherMeow(); // undefined undefined
+
+// Solution - hardbound version
+let workingMeow = tiny.meow.bind(tiny);
+workingMeow(); // Tiny Cat = version of meow permanently bound to tiny as object
