@@ -56,3 +56,14 @@ let mrKitty = {
 };
 
 mrKitty.meow();
+
+// Solution 4 - arrow function
+let tinyCat = {
+  name: "Tiny",
+  meow() {
+    let purr = () => console.log(`I am a happy cat purring, my name is ${this.name}`);
+    purr();
+  },
+};
+
+tinyCat.meow();
