@@ -4,7 +4,7 @@ let tiny = {
   eatTreats() {
     ['goopie', 'crunchy', 'bunny'].forEach(function(treat) {
       console.log(`${this.name} is happily eating ${treat}`);
-    });
+    }, this);
   },
 }
 
