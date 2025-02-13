@@ -67,3 +67,8 @@ let tinyCat = {
 };
 
 tinyCat.meow();
+
+// Addendum - arrow context is by definition, not lexically
+schwiedeh = {name: "Schwiedie"}
+schwiedeh.meow = tinyCat.meow;
+schwiedeh.meow();
