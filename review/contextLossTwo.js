@@ -27,4 +27,18 @@ let martin = {
   },
 };
 
-martin.meow()
+martin.meow();
+
+// Solution 2 - call/apply with needed context
+let olli = {
+  name: "Ollipop",
+  meow() {
+    function purr() {
+      console.log(`I am a happy cat purring, my name is ${this.name}`);
+    };
+
+    purr.call(this);
+  },
+};
+
+olli.meow();
