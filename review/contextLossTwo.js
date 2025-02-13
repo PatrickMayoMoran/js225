@@ -42,3 +42,17 @@ let olli = {
 };
 
 olli.meow();
+
+// Solution 3 - function expression with bind
+let mrKitty = {
+  name: "Mr. Kitty",
+  meow() {
+    let purr = function () {
+      console.log(`I am a happy cat purring, my name is ${this.name}`);
+    }.bind(this); // function expression with bind immediately called on it
+
+    purr();
+  },
+};
+
+mrKitty.meow();
