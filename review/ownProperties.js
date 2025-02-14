@@ -11,3 +11,4 @@ tiny.meow = () => console.log("Meow");
 console.log(tiny.hasOwnProperty("purr")); // false, it's cats
 console.log(cat.hasOwnProperty("purr")); // true, defined on cat
 console.log(Object.getOwnPropertyNames(tiny)); // ["meow"];
+console.log(Object.getOwnPropertyNames(cat).includes("purr")); // true
