@@ -1,3 +1,4 @@
+/* Own Solution
 function getDefiningObject(object, propKey) {
   if (object === null) return null;
   if (object.hasOwnProperty(propKey)) {
@@ -6,6 +7,14 @@ function getDefiningObject(object, propKey) {
     let ancestor = Object.getPrototypeOf(object);
     return getDefiningObject(ancestor, propKey);
   }
+}
+*/
+
+function getDefiningObject(object, propKey) {
+  while (object && !object.hasOwnProperty(propKey)) {
+    object = Object.getPrototypeOf(object);
+  }
+  return object;
 }
 
 let foo = {
