@@ -13,6 +13,13 @@
         return element.filter(e => !args.includes(e));
       },
 
+      lastIndexOf(el) {
+        for (let i = element.length - 1; i >= 0; i--) {
+          if (element[i] === el) return i;
+        }
+        return -1;
+      },
+
     };
 
     return u;
