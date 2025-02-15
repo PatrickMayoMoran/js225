@@ -8,6 +8,10 @@
       last() {
         return element[element.length - 1];
       },
+
+      without(...args) {
+        return element.filter(e => !args.includes(e));
+      },
     };
 
     return u;
