@@ -4,6 +4,10 @@
       first() {
         return element[0];
       },
+
+      last() {
+        return element[element.length - 1];
+      },
     };
 
     return u;
