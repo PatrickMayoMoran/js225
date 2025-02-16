@@ -20,6 +20,24 @@
         return -1;
       },
 
+      sample(quantity) {
+        let sampled = [];
+        let copy = [...element];
+        let get = function() {
+          let idx = Math.floor(Math.random() * copy.length);
+          let el = copy[idx];
+          copy.splice(idx, 1);
+          return el;
+        };
+
+        if (!quantity) return get();
+        for (let i = 0; i < quantity; i++) {
+          let el = get();
+          sampled.push(el);
+        };
+
+        return sampled;
+      },
     };
 
     return u;
