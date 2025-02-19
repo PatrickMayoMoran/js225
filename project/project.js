@@ -11,11 +11,13 @@
         }
       }
     
-      if (multiple) {
+      if (allMatch) {
+        if (multiple) {
         match.push(obj);
-      } else {
-        match = obj;
-        return true;
+        } else {
+          match = obj;
+          return true;
+        }
       }
     });
 
