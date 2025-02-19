@@ -39,22 +39,25 @@
         return sampled;
       },
 
-      findWhere(search) {
-        for (let i = 0; i < element.length; i++) {
-          let candidate = element[i];
-          let candidateKeys = Object.keys(candidate);
-          let allMatch = function(search, candidate) {
-            let searchKeys = Object.keys(search);
-            let canKeys = Object.keys(candidate);
-            if (searchKeys.length > canKeys.length) return false;
-            for (let i = 0; i < searchKeys.length; i++) {
-              let currKey = searchKeys[i];
-              if (search[currKey] !== candidate[currKey]) return false;
+      findWhere(props) {
+        let match;
+
+        element.some(function(obj) {
+          let allMatch = true;
+
+          for (let prop in props) {
+            if (!(prop in obj) || obj[prop] !== props[prop] ) {
+              allMatch = false;
             }
+          }
+
+          if (allMatch) {
+            match = obj;
             return true;
-          };
-          if (allMatch(search, candidate)) return candidate;
-        };
+          }
+        });
+
+        return match;
       },
     };
 
