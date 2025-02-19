@@ -1,4 +1,27 @@
 (function() {
+  function findObjs(element, props, multiple) {
+    let match = multiple ? [] : undefined;
+
+    element.some(function(obj) {
+      let allMatch = true;
+    
+      for (let prop in props) {
+        if (!(prop in obj) || obj[prop] !== props[prop] ) {
+          allMatch = false;
+        }
+      }
+    
+      if (multiple) {
+        match.push(obj);
+      } else {
+        match = obj;
+        return true;
+      }
+    });
+
+    return match;
+  };
+
   let _ = function(element) {
     let u = {
       first() {
@@ -40,24 +63,11 @@
       },
 
       findWhere(props) {
-        let match;
+        return findObjs(element, props, false);
+      },
 
-        element.some(function(obj) {
-          let allMatch = true;
-
-          for (let prop in props) {
-            if (!(prop in obj) || obj[prop] !== props[prop] ) {
-              allMatch = false;
-            }
-          }
-
-          if (allMatch) {
-            match = obj;
-            return true;
-          }
-        });
-
-        return match;
+      where(props) {
+        return findObjs(element, props, true);
       },
     };
 
