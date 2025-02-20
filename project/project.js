@@ -103,6 +103,14 @@
 
         return newObj;
       },
+
+      omit(...props) {
+        let newObj = {};
+        let keys = Object.keys(element);
+        let remainingKeys = keys.filter(key => element.hasOwnProperty(key) && !props.includes(key));
+        remainingKeys.forEach(key => newObj[key] = element[key]);
+        return newObj;
+      },
     };
 
     return u;
