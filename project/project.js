@@ -182,4 +182,8 @@
     return (toString.call(obj) === "[object String]");
   };
 
+  _.isNumber = function (obj) {
+    return (toString.call(obj) === "[object Number]");
+  };
+
 })();
