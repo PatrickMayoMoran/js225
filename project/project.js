@@ -92,6 +92,17 @@
         let ownKeys = keys.filter(key => element.hasOwnProperty(key));
         return ownKeys.map(key => element[key]);
       },
+
+      pick(...props) {
+        let newObj = {};
+        props.forEach(prop => {
+          if (element.hasOwnProperty(prop)) {
+            newObj[prop] = element[prop];
+          }
+        });
+
+        return newObj;
+      },
     };
 
     return u;
