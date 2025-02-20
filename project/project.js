@@ -160,4 +160,10 @@
     return obj && obj.nodeType === 1;
   };
 
+  _.isArray = function(obj) {
+    return obj && Array.isArray(obj);
+  };
+
+  _.
+
 })();
