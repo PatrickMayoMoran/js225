@@ -118,6 +118,8 @@
       },
     };
 
+    (["isElement", "isArray", "isObject", "isFunction", "isString", "isNumber", "isBoolean"].forEach(method => u[method] = function() { _[method].call(u, element) }));
+
     return u;
   };
 
@@ -153,5 +155,9 @@
         return _.extend(...objs);
       }
     };
+
+  _.isElement = function(obj) {
+    return obj && obj.nodeType === 1;
+  };
 
 })();
