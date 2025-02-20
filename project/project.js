@@ -164,9 +164,14 @@
     return toString.call(obj) === "[object Array]";
   };
 
-  _.isObject = function (obj) {
+  _.isObject = function(obj) {
     let type = typeof obj;
     return ((type === "object" || type === "function") && !!obj);
+  };
+
+  _.isFunction = function(obj) {
+    let type = typeof obj;
+    return type === "function";
   };
 
 })();
