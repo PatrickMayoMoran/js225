@@ -81,6 +81,11 @@
         });
         return values;
       },
+
+      keys() {
+        let keys = Object.keys(element);
+        return keys.filter(key => element.hasOwnProperty(key));
+      },
     };
 
     return u;
