@@ -174,4 +174,9 @@
     return type === "function";
   };
 
+  _.isBoolean = function(obj) {
+    let type = typeof obj;
+    return (type === "boolean" || toString.call(obj) === "[object Boolean]");
+  };
+
 })();
