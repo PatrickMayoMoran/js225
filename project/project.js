@@ -165,7 +165,8 @@
   };
 
   _.isObject = function (obj) {
-    return obj && Object.isObject(obj);
+    let type = typeof obj;
+    return ((type === "object" || type === "function") && !!obj);
   };
 
 })();
