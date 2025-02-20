@@ -111,6 +111,11 @@
         remainingKeys.forEach(key => newObj[key] = element[key]);
         return newObj;
       },
+
+      has(property) {
+        if (Object.prototype.hasOwnProperty.call(element, property)) return true;
+        return false;
+      },
     };
 
     return u;
