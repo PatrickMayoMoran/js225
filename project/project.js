@@ -86,6 +86,12 @@
         let keys = Object.keys(element);
         return keys.filter(key => element.hasOwnProperty(key));
       },
+
+      values() {
+        let keys = Object.keys(element);
+        let ownKeys = keys.filter(key => element.hasOwnProperty(key));
+        return ownKeys.map(key => element[key]);
+      },
     };
 
     return u;
