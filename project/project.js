@@ -100,14 +100,34 @@
   window._ = _;
 
   _.range = function(...args) {
-    let start, end;
-    start = args.length === 1 ? 0 : args[0];
-    end = args.length === 1 ? args[0] : args[1];
-    let newRange = [];
-    for (let i = start; i < end; i++) {
-      newRange.push(i);
+      let start, end;
+      start = args.length === 1 ? 0 : args[0];
+      end = args.length === 1 ? args[0] : args[1];
+      let newRange = [];
+      for (let i = start; i < end; i++) {
+        newRange.push(i);
+      };
+      return newRange;
     };
-    return newRange;
+
+  _.extend = function (...objs) {
+      function merge(oldObj, newObj) {
+        for (let prop in newObj) {
+          oldObj[prop] = newObj[prop];
+        }
+        return oldObj;
+      };
+
+      if (objs.length === 2) {
+        let oldObj = objs[0];
+        let newObj = objs[1];
+        return merge(oldObj, newObj);
+      } else {
+        let oldObj = objs[0];
+        let newObj = objs.pop();
+        merge(oldObj, newObj);
+        return _.extend(...objs);
+      }
     };
 
 })();
