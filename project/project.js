@@ -160,10 +160,12 @@
     return obj && obj.nodeType === 1;
   };
 
-  _.isArray = function(obj) {
-    return obj && Array.isArray(obj);
+  _.isArray = Array.isArray || function(obj) {
+    return toString.call(obj) === "[object Array]";
   };
 
-  _.
+  _.isObject = function (obj) {
+    return obj && Object.isObject(obj);
+  };
 
 })();
