@@ -175,8 +175,11 @@
   };
 
   _.isBoolean = function(obj) {
-    let type = typeof obj;
-    return (type === "boolean" || toString.call(obj) === "[object Boolean]");
+    return (toString.call(obj) === "[object Boolean]");
+  };
+
+  _.isString = function (obj) {
+    return (toString.call(obj) === "[object String]");
   };
 
 })();
