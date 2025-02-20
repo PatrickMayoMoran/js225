@@ -71,6 +71,16 @@
       where(props) {
         return findObjs(element, props, true);
       },
+
+      pluck(key) {
+        let values = [];
+        element.forEach(obj => {
+          if (obj.hasOwnProperty(key)) {
+            values.push(obj[key]);
+          }
+        });
+        return values;
+      },
     };
 
     return u;
